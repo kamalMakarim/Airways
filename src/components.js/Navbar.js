@@ -52,9 +52,9 @@ const Navbar = () => {
 
             <div className={`w-full ${isOpen ? 'block' : 'hidden'} flex-grow lg:flex lg:items-center lg:w-auto hover:cursor-pointer transition-transform`}>
                 <ul className="text-sm lg:flex-grow">
-                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4" onClick={() => window.location.href = '/'}>Home</li>
-                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4" onClick={() => window.location.href = '/drone'}>Drone</li>
-                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white-400 mr-4" onClick={() => window.location.href = '/find'}>Find</li>
+                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4" onClick={() => window.location.href = '/Airways'}>Home</li>
+                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4" onClick={() => window.location.href = '/Airways/drone'}>Drone</li>
+                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white-400 mr-4" onClick={() => window.location.href = '/Airways/find'}>Find</li>
                 </ul>
             </div>
         </nav>
