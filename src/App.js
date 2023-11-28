@@ -6,9 +6,9 @@ import Drone from './pages/Drone';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/find" element={<Find />} />
-      <Route path="/drone" element={<Drone />} />
+      <Route path="/Airways/" element={<Home />} />
+      <Route path="/Airways/find" element={<Find />} />
+      <Route path="/Airways/drone" element={<Drone />} />
       <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>
   );
