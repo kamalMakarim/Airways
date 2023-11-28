@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/airways/static/css/main.7d3deac0.css",
-    "main.js": "/airways/static/js/main.6080c0df.js",
-    "static/media/PetaBandung.png": "/airways/static/media/PetaBandung.66e1cdd52e5b837d2f90.png",
-    "static/media/airWayLogo.png": "/airways/static/media/airWayLogo.5cbae8f561e745266270.png",
-    "static/media/lowTemp.png": "/airways/static/media/lowTemp.de498830369b326c9cf6.png",
-    "static/media/highTemp.png": "/airways/static/media/highTemp.e97bca68e31446520b23.png",
-    "static/media/mediumTemp.png": "/airways/static/media/mediumTemp.c74f30a08fb27dff7970.png",
-    "index.html": "/airways/index.html",
-    "main.7d3deac0.css.map": "/airways/static/css/main.7d3deac0.css.map",
-    "main.6080c0df.js.map": "/airways/static/js/main.6080c0df.js.map"
+    "main.css": "/Airways/static/css/main.7d3deac0.css",
+    "main.js": "/Airways/static/js/main.0601c8f0.js",
+    "static/media/PetaBandung.png": "/Airways/static/media/PetaBandung.66e1cdd52e5b837d2f90.png",
+    "static/media/airWayLogo.png": "/Airways/static/media/airWayLogo.5cbae8f561e745266270.png",
+    "static/media/lowTemp.png": "/Airways/static/media/lowTemp.de498830369b326c9cf6.png",
+    "static/media/highTemp.png": "/Airways/static/media/highTemp.e97bca68e31446520b23.png",
+    "static/media/mediumTemp.png": "/Airways/static/media/mediumTemp.c74f30a08fb27dff7970.png",
+    "index.html": "/Airways/index.html",
+    "main.7d3deac0.css.map": "/Airways/static/css/main.7d3deac0.css.map",
+    "main.0601c8f0.js.map": "/Airways/static/js/main.0601c8f0.js.map"
   },
   "entrypoints": [
     "static/css/main.7d3deac0.css",
-    "static/js/main.6080c0df.js"
+    "static/js/main.0601c8f0.js"
   ]
 }
