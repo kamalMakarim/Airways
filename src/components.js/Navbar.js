@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
+    const homeElement = document.getElementById('home');
+    const droneElement = document.getElementById('drone');
+    const findElement = document.getElementById('find');
 
     return (
 
@@ -52,9 +55,9 @@ const Navbar = () => {
 
             <div className={`w-full ${isOpen ? 'block' : 'hidden'} flex-grow lg:flex lg:items-center lg:w-auto hover:cursor-pointer transition-transform`}>
                 <ul className="text-sm lg:flex-grow">
-                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4" onClick={() => window.location.href = '/Airways'}>Home</li>
-                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4" onClick={() => window.location.href = '/Airways/drone'}>Drone</li>
-                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white-400 mr-4" onClick={() => window.location.href = '/Airways/find'}>Find</li>
+                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4" onClick={() => props.setCurrentPage('home')}>Home</li>
+                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4" onClick={() => props.setCurrentPage('drone')}>Drone</li>
+                    <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-qqwhite-400 mr-4" onClick={() => props.setCurrentPage('find')}>Find</li>
                 </ul>
             </div>
         </nav>

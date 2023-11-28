@@ -1,16 +1,30 @@
-import { Routes, Route } from 'react-router-dom'; 
+import React, { useState } from 'react';
+import Navbar from './components.js/Navbar';
 import Home from './pages/Home';
-import Find from './pages/Find';
 import Drone from './pages/Drone';
+import Find from './pages/Find';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <Home />;
+      case 'drone':
+        return <Drone />;
+      case 'find':
+        return <Find />;
+      default:
+        return <Home />;
+    }
+  };
+
   return (
-    <Routes>
-      <Route path="/Airways/" element={<Home />} />
-      <Route path="/Airways/find" element={<Find />} />
-      <Route path="/Airways/drone" element={<Drone />} />
-      <Route path="*" element={<h1>Not Found</h1>} />
-    </Routes>
+    <div className='w-screen h-screen flex flex-col justify-start items-center'>
+      <Navbar setCurrentPage={setCurrentPage} />
+      {renderPage()}
+    </div>
   );
 }
 

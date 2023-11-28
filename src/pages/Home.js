@@ -9,7 +9,7 @@ import mediumTemp from '../assets/mediumTemp.png';
 import lowTemp from '../assets/lowTemp.png';
 import airwayLogo from '../assets/airWayLogo.png';
 
-function Home() {
+function Home(props) {
     const cityLog = {
         location: {
             name: 'Bandung'
@@ -95,9 +95,7 @@ function Home() {
     ];
     return (
         <div className='w-screen h-screen flex flex-col justify-start items-center'>
-          <Navbar />
           <div className='w-full'>
-            
             <div className="flex flex-col items-center mx-10 my-10 bg-white shadow-lg p-10 rounded-lg"> 
                 <img src={airwayLogo} alt="Airway Logo" className="h-32 object-cover" />
                 <h1 className="text-4xl font-bold text-center">Hello, Kayla Nadhira </h1>
