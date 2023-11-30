@@ -7,7 +7,7 @@ import Auto from '../assets/auto.png';
 
 function Drone(props) {
     const station = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253763.05169549474!2d106.81779749999998!3d-6.387848549999987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95620a297d3%3A0x1cfd4042316fb217!2sDepok%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1701363458078!5m2!1sen!2sid';
-    const drones = [
+    const [drones, setDrones] = useState([
         
         {
             name: 'Yeager',
@@ -34,7 +34,7 @@ function Drone(props) {
             map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.07283258812!2d106.8278572451784!3d-6.195147568167869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f43e35e53099%3A0x3e389ed39c2f9bb4!2sKec.%20Menteng%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701362964909!5m2!1sid!2sid',
             airQuality: 'Good',
             battery: 60,
-            status: 'At base station'
+            status: 'Scanning'
         },
         {
             name: 'Gojo',
@@ -46,18 +46,27 @@ function Drone(props) {
             status: 'Deploying'
         }
 
-    ];
+    ]);
 
     const [shownDrone, setShownDrone] = useState(drones[0]);
-    const [original, setOriginal] = useState(drones[0]);
+    const [originalLocations, setOriginalLocations] = useState(drones.map(drone => ({ name: drone.name, map: drone.map, city: drone.city, kecamatan: drone.kecamatan })));
+
+    const updateDroneInList = (updatedDrone) => {
+        const updatedDrones = drones.map(drone => drone.name === updatedDrone.name ? updatedDrone : drone);
+        setDrones(updatedDrones);
+    };
 
     const handleReturnToBase = () => {
-        setOriginal(shownDrone);
-        setShownDrone({ ...shownDrone, map: station, city: 'Depok', kecamatan: 'Pondok Cina', airQuality: 'Moderate', status: 'At base station' });
+        const updatedDrone = { ...shownDrone, map: station, city: 'Depok', kecamatan: 'Pondok Cina', airQuality: 'Moderate', status: 'At base' };
+        setShownDrone(updatedDrone);
+        updateDroneInList(updatedDrone);
     };
 
     const handleDeploy = () => {
-        setShownDrone({ ...shownDrone, map: original.map, city:original.city, kecamatan:original.kecamatan , status: 'Deploying' });
+        const originalLocation = originalLocations.find(loc => loc.name === shownDrone.name);
+        const updatedDrone = { ...shownDrone, map: originalLocation.map, city: originalLocation.city, kecamatan: originalLocation.kecamatan, status: 'Deploying' };
+        setShownDrone(updatedDrone);
+        updateDroneInList(updatedDrone);
     };
 
     const handleSpray = () => {
@@ -93,12 +102,13 @@ function Drone(props) {
                 {drones.map((drone, index) => (
                     <div key={index} className='mx-auto'>
                         <div
-                            className={`p-8 m-3 w-30 h-30 rounded-md hover:cursor-pointer ${drone.battery >= 80 ? 'bg-green-700 hover:bg-green-800' : drone.battery >= 50 ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-red-500 hover:bg-red-600'}`}
+                            className={`p-8 m-3 w-40 h-30 rounded-md hover:cursor-pointer ${drone.battery >= 80 ? 'bg-green-700 hover:bg-green-800' : drone.battery >= 50 ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-red-500 hover:bg-red-600'}`}
                             onClick={() => setShownDrone(drone)}
                         >
                             <h2 className='text-white text-xl font-semibold w-30'>{drone.name}</h2>
                             <p className='text-white text-3xl font-semi'>{drone.battery}%</p>
                             <p className='text-white text-md font-thin'>in {drone.city}</p>
+                            <p className='text-white text-md font-thin'>{drone.status}</p>
                         </div>
                     </div>
                 ))}
@@ -129,10 +139,10 @@ function Drone(props) {
                 ></iframe>
 
                 
-                <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mx-auto text-center hover:cursor-pointer' onClick={shownDrone.status === 'At base station' ? handleDeploy : handleReturnToBase}>
-                    {shownDrone.status === 'At base station' ? 'Deploy' : 'Return to base'}
+                <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mx-auto text-center hover:cursor-pointer' onClick={shownDrone.status === 'At base' ? handleDeploy : handleReturnToBase}>
+                    {shownDrone.status === 'At base' ? 'Deploy' : 'Return to base'}
                     </div>
-                    {shownDrone.status !== 'At base station' && (
+                    {shownDrone.status !== 'At base' && (
                         <>
                             <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mx-auto text-center hover:cursor-pointer' onClick={handleSpray}>Spray</div>
                             <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mx-auto text-center hover:cursor-pointer' onClick={handleScan}>Scan</div>
