@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Airways/static/css/main.ba6af0e9.css",
-    "main.js": "/Airways/static/js/main.dc8d837a.js",
+    "main.js": "/Airways/static/js/main.125d595a.js",
     "static/media/petaBandung.png": "/Airways/static/media/petaBandung.66e1cdd52e5b837d2f90.png",
     "static/media/petaJakarta.png": "/Airways/static/media/petaJakarta.b677144a500403afe63b.png",
     "static/media/airWayLogo.png": "/Airways/static/media/airWayLogo.5cbae8f561e745266270.png",
@@ -15,10 +15,10 @@
     "static/media/modderate.jpg": "/Airways/static/media/modderate.eaea4904cdd9f1698826.jpg",
     "index.html": "/Airways/index.html",
     "main.ba6af0e9.css.map": "/Airways/static/css/main.ba6af0e9.css.map",
-    "main.dc8d837a.js.map": "/Airways/static/js/main.dc8d837a.js.map"
+    "main.125d595a.js.map": "/Airways/static/js/main.125d595a.js.map"
   },
   "entrypoints": [
     "static/css/main.ba6af0e9.css",
-    "static/js/main.dc8d837a.js"
+    "static/js/main.125d595a.js"
   ]
 }
