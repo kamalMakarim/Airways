@@ -1,44 +1,91 @@
-
 import { useState } from 'react';
-import Navbar from '../components.js/Navbar';
+import Base from '../assets/base.png';
+import Deploy from '../assets/deploy.png';
+import Scan from '../assets/scanning.png';
+import Spray from '../assets/spraying.png';
+import Auto from '../assets/auto.png';
+
 function Drone(props) {
+    const station = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253763.05169549474!2d106.81779749999998!3d-6.387848549999987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95620a297d3%3A0x1cfd4042316fb217!2sDepok%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1701363458078!5m2!1sen!2sid';
     const drones = [
         
         {
             name: 'Yeager',
             city: 'Jakarta',
             kecamatan: 'Kebayoran Baru',
-            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31729.247160982595!2d106.78074079576953!3d-6.2431758882537505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f16949681833%3A0x7998194c21afe918!2sKec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701326479136!5m2!1sid!2sid',
+            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31729.247160982595!2d106.78074079576952!3d-6.243175888253753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f16949681833%3A0x7998194c21afe918!2sKec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701362859896!5m2!1sid!2sid',
             airQuality: 'Moderate',
-            battery: 100
+            battery: 100,
+            status: 'Spraying'
         },
         {
             name: 'Mcqueen',
             city: 'Jakarta',
             kecamatan: 'Tanah Abang',
-            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31731.53034602184!2d106.78686484573834!3d-6.205374387569568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f6a5221aa551%3A0xb1f4d9d25da21eea!2sKecamatan%20Tanah%20Abang%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701326391815!5m2!1sid!2sid',
+            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31731.53034602184!2d106.78686484573834!3d-6.205374387569568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f6a5221aa551%3A0xb1f4d9d25da21eea!2sKecamatan%20Tanah%20Abang%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701362915521!5m2!1sid!2sid',
             airQuality: 'Good',
-            battery: 80
+            battery: 80,
+            status: 'Scanning'
         },
         {
             name: 'Loki',
             city: 'Jakarta',
             kecamatan: 'Menteng',
-            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.07283258812!2d106.8278572451784!3d-6.195147568167869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f43e35e53099%3A0x3e389ed39c2f9bb4!2sKec.%20Menteng%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701326632321!5m2!1sid!2sid',
+            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.07283258812!2d106.8278572451784!3d-6.195147568167869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f43e35e53099%3A0x3e389ed39c2f9bb4!2sKec.%20Menteng%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701362964909!5m2!1sid!2sid',
             airQuality: 'Good',
-            battery: 60
+            battery: 60,
+            status: 'At base station'
         },
         {
             name: 'Gojo',
             city: 'Jakarta',
             kecamatan: 'Gambir',
-            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.669725595359!2d106.80732599288618!3d-6.175258311998381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2df11a6a1%3A0xa0b25af411142292!2sGambir%2C%20Kecamatan%20Gambir%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701326723637!5m2!1sid!2sid',
+            map:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.669725595359!2d106.80732599288618!3d-6.175258311998381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2df11a6a1%3A0xa0b25af411142292!2sGambir%2C%20Kecamatan%20Gambir%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701363029976!5m2!1sid!2sid',
             airQuality: 'Bad',
-            battery: 30
+            battery: 30,
+            status: 'Deploying'
         }
 
     ];
+
     const [shownDrone, setShownDrone] = useState(drones[0]);
+    const [original, setOriginal] = useState(drones[0]);
+
+    const handleReturnToBase = () => {
+        setOriginal(shownDrone);
+        setShownDrone({ ...shownDrone, map: station, city: 'Depok', kecamatan: 'Pondok Cina', airQuality: 'Moderate', status: 'At base station' });
+    };
+
+    const handleDeploy = () => {
+        setShownDrone({ ...shownDrone, map: original.map, city:original.city, kecamatan:original.kecamatan , status: 'Deploying' });
+    };
+
+    const handleSpray = () => {
+        setShownDrone({ ...shownDrone, status: 'Spraying' });
+    };
+
+    const handleScan = () => {
+        setShownDrone({ ...shownDrone, status: 'Scanning' });
+    };
+
+    const handleAuto = () => {
+        setShownDrone({ ...shownDrone, status: 'Auto' });
+    };
+
+    const getStatusImage = (status) => {
+        switch (status) {
+            case 'Spraying':
+                return Spray;
+            case 'Scanning':
+                return Scan;
+            case 'Deploying':
+                return Deploy;
+            case 'Auto':
+                return Auto;
+            default:
+                return Base;
+        }
+    };
 
     return (
         <div className='w-screen h-screen flex flex-col justify-start items-center'>
@@ -61,23 +108,40 @@ function Drone(props) {
                 <h2 className='text-xl font-bold'>Details for {shownDrone.name}</h2>
                 <p className='text-lg mb-2'>{shownDrone.kecamatan}, {shownDrone.city}</p>
                 
-                <p>Air Quality  : {shownDrone.airQuality}</p>
-                <p>Battery Life : {shownDrone.battery}%</p>
+                <div className='flex flex-row justify-between items-center'>
+                    <div className='flex flex-col justify-between items-start'>
+                        <p>Air Quality  : {shownDrone.airQuality}</p>
+                        <p>Battery Life : {shownDrone.battery}%</p>
+                        <p>Status       : {shownDrone.status}</p>
+                    </div>
+                    <img src={getStatusImage(shownDrone.status)} alt="Status" className="h-20 ml-4" />
+                </div>
                 
                 <iframe
                     src={shownDrone.map}
                     width="100%" 
-                    height="400"
+                    height="300"
                     style={{ border: 0 }}
-                    className="relative z-0"
+                    className="relative z-0 rounded-xl mt-3"
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
-                <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-auto text-center hover:cursor-pointer'>Take Control</div>
-            </div>
-        </div>
-    );
-}
+
+                
+                <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mx-auto text-center hover:cursor-pointer' onClick={shownDrone.status === 'At base station' ? handleDeploy : handleReturnToBase}>
+                    {shownDrone.status === 'At base station' ? 'Deploy' : 'Return to base'}
+                    </div>
+                    {shownDrone.status !== 'At base station' && (
+                        <>
+                            <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mx-auto text-center hover:cursor-pointer' onClick={handleSpray}>Spray</div>
+                            <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mx-auto text-center hover:cursor-pointer' onClick={handleScan}>Scan</div>
+                            <div className='mt-3 bg-green-600 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mx-auto text-center hover:cursor-pointer' onClick={handleAuto}>Auto</div>
+                        </>
+                    )}
+                    </div>
+                </div>
+                );
+                }
 
 export default Drone;

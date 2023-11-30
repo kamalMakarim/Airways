@@ -69,7 +69,10 @@ function Find(props) {
                         <div
                             key={index}
                             className={`p-2 cursor-pointer ${shownCity.name === city.name ? 'bg-gray-200' : ''}`}
-                            onClick={() => setShownCity(city)}
+                            onClick={() => {
+                                setShownCity(city);
+                                setSearchQuery('');
+                            }}
                         >
                             {city.name}
                         </div>
