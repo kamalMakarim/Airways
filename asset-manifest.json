@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Airways/static/css/main.dd34dbea.css",
-    "main.js": "/Airways/static/js/main.2da83c6d.js",
+    "main.css": "/Airways/static/css/main.3a1b009a.css",
+    "main.js": "/Airways/static/js/main.925a83b5.js",
     "static/media/petaBandung.png": "/Airways/static/media/petaBandung.66e1cdd52e5b837d2f90.png",
     "static/media/petaJakarta.png": "/Airways/static/media/petaJakarta.b677144a500403afe63b.png",
     "static/media/airWayLogo.png": "/Airways/static/media/airWayLogo.5cbae8f561e745266270.png",
@@ -16,11 +16,11 @@
     "static/media/spraying.png": "/Airways/static/media/spraying.4a63984aec3298ca7789.png",
     "static/media/auto.png": "/Airways/static/media/auto.94529265e545923fcb4a.png",
     "index.html": "/Airways/index.html",
-    "main.dd34dbea.css.map": "/Airways/static/css/main.dd34dbea.css.map",
-    "main.2da83c6d.js.map": "/Airways/static/js/main.2da83c6d.js.map"
+    "main.3a1b009a.css.map": "/Airways/static/css/main.3a1b009a.css.map",
+    "main.925a83b5.js.map": "/Airways/static/js/main.925a83b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd34dbea.css",
-    "static/js/main.2da83c6d.js"
+    "static/css/main.3a1b009a.css",
+    "static/js/main.925a83b5.js"
   ]
 }
