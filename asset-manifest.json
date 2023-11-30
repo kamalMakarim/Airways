@@ -1,18 +1,24 @@
 {
   "files": {
-    "main.css": "/Airways/static/css/main.a9ff6dea.css",
-    "main.js": "/Airways/static/js/main.ebdf2c3c.js",
-    "static/media/PetaBandung.png": "/Airways/static/media/PetaBandung.66e1cdd52e5b837d2f90.png",
+    "main.css": "/Airways/static/css/main.ba6af0e9.css",
+    "main.js": "/Airways/static/js/main.dc8d837a.js",
+    "static/media/petaBandung.png": "/Airways/static/media/petaBandung.66e1cdd52e5b837d2f90.png",
+    "static/media/petaJakarta.png": "/Airways/static/media/petaJakarta.b677144a500403afe63b.png",
     "static/media/airWayLogo.png": "/Airways/static/media/airWayLogo.5cbae8f561e745266270.png",
+    "static/media/petaYogyakarta.png": "/Airways/static/media/petaYogyakarta.868f81d446eb22711809.png",
+    "static/media/petaSurabaya.png": "/Airways/static/media/petaSurabaya.86e6ac81295c31e22c23.png",
+    "static/media/bad.jpg": "/Airways/static/media/bad.0df0973ed62b752c93c1.jpg",
     "static/media/lowTemp.png": "/Airways/static/media/lowTemp.de498830369b326c9cf6.png",
     "static/media/highTemp.png": "/Airways/static/media/highTemp.e97bca68e31446520b23.png",
+    "static/media/good.jpg": "/Airways/static/media/good.e7897e48c06acd943781.jpg",
     "static/media/mediumTemp.png": "/Airways/static/media/mediumTemp.c74f30a08fb27dff7970.png",
+    "static/media/modderate.jpg": "/Airways/static/media/modderate.eaea4904cdd9f1698826.jpg",
     "index.html": "/Airways/index.html",
-    "main.a9ff6dea.css.map": "/Airways/static/css/main.a9ff6dea.css.map",
-    "main.ebdf2c3c.js.map": "/Airways/static/js/main.ebdf2c3c.js.map"
+    "main.ba6af0e9.css.map": "/Airways/static/css/main.ba6af0e9.css.map",
+    "main.dc8d837a.js.map": "/Airways/static/js/main.dc8d837a.js.map"
   },
   "entrypoints": [
-    "static/css/main.a9ff6dea.css",
-    "static/js/main.ebdf2c3c.js"
+    "static/css/main.ba6af0e9.css",
+    "static/js/main.dc8d837a.js"
   ]
 }
