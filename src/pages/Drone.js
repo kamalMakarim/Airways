@@ -5,26 +5,26 @@ function Drone(props) {
     const drones = [
         
         {
-            name: 'Itadori',
+            name: 'Yeager',
             city: 'Jakarta',
             kecamatan: 'Kebayoran Baru',
-            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.880508821737!2d106.8105473147699!3d-6.243017995476799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf0b8b0b6d1%3A0x2b9b6b0b0b0b0b0b!2sJl.%20Cipaku%20I%20No.1%2C%20RT.1%2FRW.1%2C%20Rw.%20Bar.%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012140!5e0!3m2!1sen!2sid!4v1625245444009!5m2!1sen!2sid',
+            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31729.247160982595!2d106.78074079576953!3d-6.2431758882537505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f16949681833%3A0x7998194c21afe918!2sKec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701326479136!5m2!1sid!2sid',
             airQuality: 'Moderate',
             battery: 100
         },
         {
-            name: 'Megumi',
+            name: 'Mcqueen',
             city: 'Jakarta',
             kecamatan: 'Tanah Abang',
-            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.880508821737!2d106.8105473147699!3d-6.243017995476799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf0b8b0b6d1%3A0x2b9b6b0b0b0b0b0b!2sJl.%20Cipaku%20I%20No.1%2C%20RT.1%2FRW.1%2C%20Rw.%20Bar.%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012140!5e0!3m2!1sen!2sid!4v1625245444009!5m2!1sen!2sid',
+            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31731.53034602184!2d106.78686484573834!3d-6.205374387569568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f6a5221aa551%3A0xb1f4d9d25da21eea!2sKecamatan%20Tanah%20Abang%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701326391815!5m2!1sid!2sid',
             airQuality: 'Good',
             battery: 80
         },
         {
-            name: 'Nobara',
+            name: 'Loki',
             city: 'Jakarta',
             kecamatan: 'Menteng',
-            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.880508821737!2d106.8105473147699!3d-6.243017995476799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf0b8b0b6d1%3A0x2b9b6b0b0b0b0b0b!2sJl.%20Cipaku%20I%20No.1%2C%20RT.1%2FRW.1%2C%20Rw.%20Bar.%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012140!5e0!3m2!1sen!2sid!4v1625245444009!5m2!1sen!2sid',
+            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.07283258812!2d106.8278572451784!3d-6.195147568167869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f43e35e53099%3A0x3e389ed39c2f9bb4!2sKec.%20Menteng%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701326632321!5m2!1sid!2sid',
             airQuality: 'Good',
             battery: 60
         },
@@ -32,7 +32,7 @@ function Drone(props) {
             name: 'Gojo',
             city: 'Jakarta',
             kecamatan: 'Gambir',
-            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.880508821737!2d106.8105473147699!3d-6.243017995476799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf0b8b0b6d1%3A0x2b9b6b0b0b0b0b0b!2sJl.%20Cipaku%20I%20No.1%2C%20RT.1%2FRW.1%2C%20Rw.%20Bar.%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012140!5e0!3m2!1sen!2sid!4v1625245444009!5m2!1sen!2sid',
+            map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.669725595359!2d106.80732599288618!3d-6.175258311998381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2df11a6a1%3A0xa0b25af411142292!2sGambir%2C%20Kecamatan%20Gambir%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701326723637!5m2!1sid!2sid',
             airQuality: 'Bad',
             battery: 30
         }
@@ -57,7 +57,7 @@ function Drone(props) {
                 ))}
             </div>
 
-            <div className="x-10 my-0 p-7 border bg-white rounded-xl relative items-center">
+            <div className="x-10 my-0 p-7 border bg-white rounded-xl relative items-center w-4/5">
                 <h2 className='text-xl font-bold'>Details for {shownDrone.name}</h2>
                 <p className='text-lg mb-2'>{shownDrone.kecamatan}, {shownDrone.city}</p>
                 
@@ -66,7 +66,7 @@ function Drone(props) {
                 
                 <iframe
                     src={shownDrone.map}
-                    width="300"
+                    width="100%" 
                     height="400"
                     style={{ border: 0 }}
                     className="relative z-0"

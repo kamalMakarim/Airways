@@ -37,7 +37,7 @@ function Find(props) {
             name: 'Yogyakarta',
             humidity: 70,
             temperature: 25,
-            airQuality: 'moderate',
+            airQuality: 'Moderate',
             map: PetaYogyakarta
         }
     ];
