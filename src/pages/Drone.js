@@ -40,7 +40,7 @@ function Drone(props) {
             name: 'Gojo',
             city: 'Jakarta',
             kecamatan: 'Gambir',
-            map:'',
+            map:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.669725595359!2d106.80732599288618!3d-6.175258311998381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2df11a6a1%3A0xa0b25af411142292!2sGambir%2C%20Kecamatan%20Gambir%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701363029976!5m2!1sid!2sid',
             airQuality: 'Bad',
             battery: 30,
             status: 'Deploying'
