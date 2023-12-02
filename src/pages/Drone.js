@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Base from '../assets/base.png';
 import Deploy from '../assets/deploy.png';
 import Scan from '../assets/scanning.png';
 import Spray from '../assets/spraying.png';
 import Auto from '../assets/auto.png';
+
 
 function Drone(props) {
     const station = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15860.891757015792!2d106.82285224521362!3d-6.365187522452405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ec16d2e31e2d%3A0x6709a8bd87240f54!2sPondok%20Cina%2C%20Kecamatan%20Beji%2C%20Kota%20Depok%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1701391689725!5m2!1sid!2sid';
@@ -74,11 +75,6 @@ function Drone(props) {
     };
     const [originalLocations, setOriginalLocations] = useState(drones.map(drone => ({ name: drone.name, map: drone.map, city: drone.city, kecamatan: drone.kecamatan })));
 
-    const updateDroneInList = (updatedDrone) => {
-        const updatedDrones = drones.map(drone => drone.name === updatedDrone.name ? updatedDrone : drone);
-        setDrones(updatedDrones);
-    };
-
     const handleReturnToBase = () => {
         const updatedDrone = { ...shownDrone, map: station, city: 'Depok', kecamatan: 'Pondok Cina', airQuality: 'Moderate', status: 'At base' };
         setShownDrone(updatedDrone);
@@ -140,6 +136,67 @@ function Drone(props) {
         }
     };
 
+    const updateDroneInList = (updatedDrone) => {
+        setDrones(prevDrones => prevDrones.map(drone => 
+            drone.name === updatedDrone.name ? updatedDrone : drone
+        ));
+    };
+
+    useEffect(() => {
+        let batteryDrainInterval;
+
+        if (shownDrone.status !== 'At base' && shownDrone.battery > 20) {
+            batteryDrainInterval = setInterval(() => {
+                setShownDrone(prevDrone => {
+                    if (prevDrone.battery > 20) {
+                        const newBatteryLevel = prevDrone.battery - 1;
+                        const updatedDrone = { ...prevDrone, battery: newBatteryLevel };
+                        updateDroneInList(updatedDrone); // Update the drone in the list
+                        return updatedDrone;
+                    }
+                    return prevDrone;
+                });
+            }, 1000); // Adjust the interval as needed
+        } else if (shownDrone.status === 'At base') {
+            if (shownDrone.battery !== 100) {
+                const updatedDrone = { ...shownDrone, battery: 100 };
+                setShownDrone(updatedDrone);
+                updateDroneInList(updatedDrone); // Update the drone in the list
+            }
+        }
+
+        return () => clearInterval(batteryDrainInterval);
+    }, [shownDrone, setDrones]);
+
+    const decreaseBatteryForDrones = () => {
+        setDrones(prevDrones => prevDrones.map(drone => {
+            if (drone.status !== 'At base' && drone.battery > 20) {
+                return { ...drone, battery: drone.battery - 1 };
+            }
+            return drone;
+        }));
+    };
+
+    useEffect(() => {
+        // Set up an interval to decrease the battery for all drones
+        const batteryDrainInterval = setInterval(() => {
+            decreaseBatteryForDrones();
+        }, 5000); // Adjust the interval as needed
+
+        return () => clearInterval(batteryDrainInterval);
+    }, []);
+
+    // Update shownDrone when drones state changes
+    useEffect(() => {
+        if (shownDrone) {
+            const updatedDrone = drones.find(drone => drone.name === shownDrone.name);
+            if (updatedDrone) {
+                setShownDrone(updatedDrone);
+            }
+        }
+    }, [drones]);
+
+
     return (
         <div className='w-screen h-screen flex flex-col justify-start items-center'>
             <div className="flex flex-wrap items-center mx-10 my-10 bg-white shadow-lg p-10 rounded-lg max-w-500">
@@ -158,7 +215,7 @@ function Drone(props) {
                 ))}
             </div>
     
-            <div className="x-10 my-0 p-7 border bg-white rounded-xl relative items-center w-4/5">
+            <div className="x-10 my-0 p-7 border bg-white rounded-xl items-center w-4/5">
                 <h2 className='text-xl font-bold'>Details for {shownDrone.name}</h2>
                 <p className='text-lg mb-2'>{shownDrone.kecamatan}, {shownDrone.city}</p>
                 
